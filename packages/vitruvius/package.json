@@ -1,6 +1,6 @@
 {
   "name": "vitruvius",
-  "description": "Master builder for npm packages.",
+  "description": "Easily prepare npm packages for release.",
   "version": "1.0.0",
   "bin": {
     "vitruvius": "./bin/vitruvius.js"

@@ -1,5 +1,5 @@
 {
-  "name": "vitruvius-build",
+  "name": "vitruvius-build-package",
   "version": "1.0.0",
   "main": "lib/index.js",
   "engines": {
