@@ -1,25 +1,8 @@
 {
-  "name": "vitruvius",
-  "version": "1.0.0",
-  "description": "Master builder for npm packages.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thomashuston/vitruvius.git"
-  },
-  "keywords": [
-    "babel",
-    "build",
-    "compile",
-    "deploy",
-    "javascript",
-    "npm",
-    "publish",
-    "transform"
-  ],
-  "author": "Thomas Huston <thomas@huston.io>",
-  "license": "MIT",
+  "private": true,
   "scripts": {
     "lint": "eslint . --cache",
+    "postinstall": "lerna bootstrap",
     "test": "jest"
   },
   "devDependencies": {
@@ -32,6 +15,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
-    "jest": "^18.1.0"
+    "jest": "^18.1.0",
+    "lerna": "2.0.0-beta.31"
   }
 }

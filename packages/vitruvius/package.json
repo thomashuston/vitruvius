@@ -1,0 +1,28 @@
+{
+  "name": "vitruvius",
+  "description": "Master builder for npm packages.",
+  "version": "1.0.0",
+  "bin": {
+    "vitruvius": "./bin/vitruvius.js"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomashuston/vitruvius.git"
+  },
+  "keywords": [
+    "babel",
+    "build",
+    "cli",
+    "compile",
+    "deploy",
+    "javascript",
+    "npm",
+    "publish",
+    "transform"
+  ],
+  "author": "Thomas Huston <thomas@huston.io>",
+  "license": "MIT"
+}
