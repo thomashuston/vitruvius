@@ -19,7 +19,7 @@
   "author": "Thomas Huston <thomas@huston.io>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint --cache",
+    "lint": "eslint . --cache",
     "test": "jest"
   },
   "devDependencies": {
