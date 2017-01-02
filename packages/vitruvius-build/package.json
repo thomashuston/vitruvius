@@ -1,0 +1,20 @@
+{
+  "name": "vitruvius-build",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">= 4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomashuston/vitruvius.git"
+  },
+  "author": "Thomas Huston <thomas@huston.io>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "fs-extra": "^1.0.0",
+    "glob": "^7.1.1",
+    "micromatch": "^2.3.11"
+  }
+}
