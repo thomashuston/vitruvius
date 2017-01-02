@@ -11,6 +11,8 @@ cache:
   directories:
     - $HOME/.yarn-cache
     - node_modules
+    - packages/vitruvius/node_modules
+    - packages/vitruvius-build-package/node_modules
     - .eslintcache
 
 before_install:

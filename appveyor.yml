@@ -13,6 +13,8 @@ environment:
 cache:
   - "%LOCALAPPDATA%\\Yarn"
   - node_modules
+  - packages/vitruvius/node_modules
+  - packages/vitruvius-build-package/node_modules
   - .eslintcache
 
 install:
