@@ -1,0 +1,28 @@
+notifications:
+  - provider: Email
+    on_build_success: false
+    on_build_failure: false
+    on_build_status_changed: false
+
+environment:
+  matrix:
+    - nodejs_version: "4"
+    - nodejs_version: "6"
+    - nodejs_version: "7"
+
+cache:
+  - "%LOCALAPPDATA%\\Yarn"
+  - node_modules
+  - .eslintcache
+
+install:
+  - ps: Install-Product node $env:nodejs_version x64
+  - node --version
+  - yarn --version
+  - yarn install
+
+build: off
+
+test_script:
+  - yarn run lint
+  - yarn run test

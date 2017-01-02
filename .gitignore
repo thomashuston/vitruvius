@@ -1,0 +1,8 @@
+*~
+*.log
+*.swp
+.DS_STORE
+.eslintcache
+lib
+coverage
+node_modules
