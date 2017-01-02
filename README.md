@@ -2,4 +2,4 @@
 
  Master builder for npm packages.
 
-<img src="./docs/img/vitruvius.jpg" style="width: 50%;" />
+<img src="docs/img/vitruvius.png" width="100"> Master builder for npm packages.
