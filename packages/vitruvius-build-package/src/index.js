@@ -1,3 +1,4 @@
+import * as fs from 'fs-extra';
 import * as path from 'path';
 import micromatch from 'micromatch';
 import buildFile from './buildFile';
@@ -9,16 +10,17 @@ const JS_FILE_PATTERN = '**/*.js';
 const JSX_FILE_PATTERN = '**/*.jsx';
 
 export default function buildPackage({
-    packageDir,
     srcDir,
     destDir,
     ignorePatterns
 }) {
-    const files = getFiles(packageDir);
+    const files = getFiles(srcDir);
     const filteredFiles = filterFiles(files, ignorePatterns);
     filteredFiles.forEach((file) => {
         const relativeToSrcPath = path.relative(srcDir, file);
         const destPath = path.resolve(destDir, relativeToSrcPath);
+
+        fs.mkdirsSync(path.dirname(destPath));
 
         if (micromatch.isMatch(file, JS_FILE_PATTERN)) {
             buildFile(file, destPath);
