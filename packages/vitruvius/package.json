@@ -24,5 +24,10 @@
     "transform"
   ],
   "author": "Thomas Huston <thomas@huston.io>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "vitruvius-build-package": "^1.0.0",
+    "yargs": "^6.5.0"
+  }
 }
