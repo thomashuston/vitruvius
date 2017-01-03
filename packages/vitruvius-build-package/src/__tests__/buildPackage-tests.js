@@ -1,4 +1,5 @@
 import * as fs from 'fs-extra';
+import * as path from 'path';
 import buildFile from '../buildFile';
 import buildPackage from '../';
 import copyFile from '../copyFile';
@@ -31,16 +32,16 @@ describe('buildPackage', () => {
     };
 
     const expectDirectoriesToHaveBeenCreated = (dir) => {
-        expect(fs.mkdirsSync).toHaveBeenCalledWith(dir);
+        expect(fs.mkdirsSync).toHaveBeenCalledWith(path.resolve(dir));
     };
 
     const expectFileToHaveBeenBuilt = (srcPath, destPath) => {
-        expect(buildFile).toHaveBeenCalledWith(srcPath, destPath);
+        expect(buildFile).toHaveBeenCalledWith(srcPath, path.resolve(destPath));
         expect(copyFile).not.toHaveBeenCalledWith(srcPath, expect.any(String));
     };
 
     const expectFileToHaveBeenCopied = (srcPath, destPath) => {
-        expect(copyFile).toHaveBeenCalledWith(srcPath, destPath);
+        expect(copyFile).toHaveBeenCalledWith(srcPath, path.resolve(destPath));
         expect(buildFile).not.toHaveBeenCalledWith(srcPath, expect.any(String));
     };
 
