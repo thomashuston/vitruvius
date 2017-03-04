@@ -4,7 +4,7 @@
     "build": "babel-node ./scripts/build.js",
     "clean": "rimraf ./packages/*/lib",
     "lint": "eslint . --cache",
-    "postinstall": "lerna bootstrap && yarn run clean && yarn run build",
+    "postinstall": "lerna bootstrap --concurrency=1 && yarn run clean && yarn run build",
     "test": "jest"
   },
   "devDependencies": {
