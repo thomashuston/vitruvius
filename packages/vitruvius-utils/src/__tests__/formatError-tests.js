@@ -15,6 +15,8 @@ const file = path.join(process.cwd(), 'foo/bar.js');
 it('formats Babel errors', () => {
     const error = getError(() => transform('cons invalid = true;', { filename: file }));
 
+    console.log(error.message);
+
     expect(formatError(error)).toMatchSnapshot();
 });
 
