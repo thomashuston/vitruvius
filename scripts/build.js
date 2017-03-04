@@ -6,7 +6,8 @@ const ROOT_DIR = path.resolve(path.join(__dirname, '..'));
 // TODO: Replace with vitruvius-lerna package
 const packages = [
     'vitruvius',
-    'vitruvius-build-package'
+    'vitruvius-build-package',
+    'vitruvius-lerna'
 ];
 
 packages.forEach((p) => {
