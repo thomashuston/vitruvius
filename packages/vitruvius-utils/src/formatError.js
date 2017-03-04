@@ -21,7 +21,7 @@ function separateMessageFromFile(message) {
 export default function formatError(error) {
     if (error._babel) {
         const { file, message } = separateMessageFromFile(error.message);
-        const relativeFilePath = path.relative(ROOT_DIR, file);
+        const relativeFilePath = path.relative(ROOT_DIR, file).replace('\\', '/');
         return `${message}\n\n at ${chalk.reset.cyan(relativeFilePath)}:${error.loc.line}:${error.loc.column}\n\n${error.codeFrame}`;
     } else {
         return error.toString();
