@@ -4,7 +4,7 @@
     "build": "babel-node ./scripts/build.js",
     "clean": "rimraf ./packages/*/lib",
     "lint": "eslint . --cache",
-    "postinstall": "lerna bootstrap && npm run clean && npm run build",
+    "postinstall": "lerna bootstrap && yarn run clean && yarn run build",
     "test": "jest"
   },
   "devDependencies": {
@@ -18,7 +18,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "jest": "^18.1.0",
-    "lerna": "2.0.0-beta.31",
+    "lerna": "^2.0.0-beta.38",
     "rimraf": "^2.5.4"
   }
 }
