@@ -7,15 +7,20 @@ const ROOT_DIR = process.cwd();
 function separateMessageFromFile(message) {
     const messageMatch = message.match(BABEL_MESSAGE_PATTERN);
     if (messageMatch) {
-        return messageMatch[2];
+        return {
+            file: messageMatch[1],
+            message: messageMatch[2]
+        };
     } else {
-        return message;
+        return {
+            message
+        };
     }
 }
 
-export default function formatError(error, file) {
+export default function formatError(error) {
     if (error._babel) {
-        const message = separateMessageFromFile(error.message);
+        const { file, message } = separateMessageFromFile(error.message);
         const relativeFilePath = path.relative(ROOT_DIR, file);
         return `${message}\n\n at ${chalk.reset.cyan(relativeFilePath)}:${error.loc.line}:${error.loc.column}\n\n${error.codeFrame}`;
     } else {

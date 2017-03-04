@@ -10,18 +10,16 @@ const getError = (fn) => {
     }
 };
 
-it('formats Babel errors', () => {
-    const error = getError(() => transform('cons invalid = true;'));
+const file = path.join(process.cwd(), 'foo/bar.js');
 
-    expect(
-        formatError(error, path.join(process.cwd(), 'foo/bar.js'))
-    ).toMatchSnapshot();
+it('formats Babel errors', () => {
+    const error = getError(() => transform('cons invalid = true;', { filename: file }));
+
+    expect(formatError(error)).toMatchSnapshot();
 });
 
 it('returns other errors as strings', () => {
     const error = getError(() => { throw new Error('other error type'); });
 
-    expect(
-        formatError(error, path.join(process.cwd(), 'foo/bar.js'))
-    ).toMatchSnapshot();
+    expect(formatError(error)).toMatchSnapshot();
 });
