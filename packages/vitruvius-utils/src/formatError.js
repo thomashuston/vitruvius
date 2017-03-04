@@ -1,7 +1,7 @@
 import * as path from 'path';
 import chalk from 'chalk';
 
-const BABEL_MESSAGE_PATTERN = /^([^:]+): (.*) \([0-9]+:[0-9]+\)$/;
+const BABEL_MESSAGE_PATTERN = /^((?:.+)\.jsx?): (.*) \([0-9]+:[0-9]+\)$/;
 const ROOT_DIR = process.cwd();
 
 function separateMessageFromFile(message) {
