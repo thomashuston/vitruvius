@@ -9,12 +9,8 @@ jest.mock('glob', () => ({
     sync: () => mockFiles
 }));
 
-describe('getFiles', () => {
+it('finds all files in the source directory', () => {
+    const files = getFiles('src');
 
-    it('finds all files in the source directory', () => {
-        const files = getFiles('src');
-
-        expect(files).toEqual(mockFiles);
-    });
-
+    expect(files).toEqual(mockFiles);
 });
