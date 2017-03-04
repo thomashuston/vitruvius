@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formats Babel errors 1`] = `
+"Unexpected token, expected ;
+
+ at [0m[36mfoo/bar.js[39m[0m:1:5
+
+[0m[31m[1m>[22m[39m[90m 1 | [39mcons invalid [33m=[39m [36mtrue[39m[33m;[39m
+ [90m   | [39m     [31m[1m^[22m[39m[0m"
+`;
+
+exports[`returns other errors as strings 1`] = `"Error: other error type"`;

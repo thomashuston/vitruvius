@@ -6,6 +6,7 @@
   },
   "rules": {
     "comma-dangle": ["error", "never"],
+    "consistent-return": "off",
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": true,
       "optionalDependencies": true,

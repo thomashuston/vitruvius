@@ -14,6 +14,7 @@ cache:
     - packages/vitruvius/node_modules
     - packages/vitruvius-build-package/node_modules
     - packages/vitruvius-lerna/node_modules
+    - packages/vitruvius-utils/node_modules
     - .eslintcache
 
 before_install:

@@ -7,7 +7,8 @@ const ROOT_DIR = path.resolve(path.join(__dirname, '..'));
 const packages = [
     'vitruvius',
     'vitruvius-build-package',
-    'vitruvius-lerna'
+    'vitruvius-lerna',
+    'vitruvius-utils'
 ];
 
 packages.forEach((p) => {
