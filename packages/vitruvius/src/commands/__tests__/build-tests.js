@@ -16,14 +16,22 @@ it('builds code in the source directory into the destination directory for all p
     ];
 
     build({
-        srcDir: 'src',
-        destDir: 'lib'
+        src: 'src',
+        dest: 'lib',
+        ignore: [
+            '**/__mocks__/**',
+            '**/__tests__/**'
+        ]
     });
 
     mockPackages.forEach((pkg) => {
         expect(buildPackage).toHaveBeenCalledWith({
             srcDir: path.join(pkg, 'src'),
-            destDir: path.join(pkg, 'lib')
+            destDir: path.join(pkg, 'lib'),
+            ignorePatterns: [
+                '**/__mocks__/**',
+                '**/__tests__/**'
+            ]
         });
     });
 });
