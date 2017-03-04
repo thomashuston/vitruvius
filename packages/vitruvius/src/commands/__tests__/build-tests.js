@@ -46,33 +46,3 @@ it('builds code in the source directory into the destination directory for all p
         });
     });
 });
-
-it('logs success when all packages build successfully', () => {
-    mockPackages = [
-        '/foo/bar/packages/fake-pkg-1',
-        '/foo/bar/packages/fake-pkg-2'
-    ];
-
-    build({
-        src: 'src',
-        dest: 'lib'
-    });
-
-    expect(output.join('')).toMatchSnapshot();
-});
-
-it('logs errors when some packages fail to build', () => {
-    mockPackages = [
-        '/foo/bar/packages/fake-pkg-1',
-        '/foo/bar/packages/fake-pkg-2'
-    ];
-
-    buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
-
-    build({
-        src: 'src',
-        dest: 'lib'
-    });
-
-    expect(output.join('')).toMatchSnapshot();
-});
