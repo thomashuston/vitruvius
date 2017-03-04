@@ -30,9 +30,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "git add",
-      "jest --bail --findRelatedTests"
+      "eslint --fix --color",
+      "git add"
     ]
   }
 }
