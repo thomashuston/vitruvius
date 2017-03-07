@@ -1,7 +1,7 @@
 import * as path from 'path';
 import chalk from 'chalk';
 import buildPackage from 'vitruvius-build-package';
-import indent from 'indent-string';
+import indent from 'indent';
 import pluralize from 'pluralize';
 import { getPackages } from 'vitruvius-lerna';
 import { clearLine, formatError } from 'vitruvius-utils';
@@ -56,7 +56,7 @@ export const handler = (argv) => {
             errorCount++;
             clearLine();
             process.stdout.write(`${chalk.reset.inverse.red.bold(' ERROR ')} ${packageName}\n`);
-            process.stdout.write(`\n${indent(formatError(e), ' ', 2)}\n\n`);
+            process.stdout.write(`\n${indent(formatError(e), 2)}\n\n`);
         }
     });
 
