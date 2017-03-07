@@ -1,7 +1,7 @@
 {
   "name": "vitruvius",
   "description": "Master builder for Lerna projects.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
     "vitruvius": "./bin/vitruvius.js"
   },
