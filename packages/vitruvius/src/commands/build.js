@@ -56,7 +56,7 @@ export const handler = (argv) => {
             errorCount++;
             clearLine();
             process.stdout.write(`${chalk.reset.inverse.red.bold(' ERROR ')} ${packageName}\n`);
-            process.stdout.write(`\n${indent(formatError(e), 2)}\n\n`);
+            process.stdout.write(`\n${indent(formatError(e), ' ', 2)}\n\n`);
         }
     });
 
@@ -77,7 +77,9 @@ export const handler = (argv) => {
 
     if (errorCount > 0) {
         process.stdout.write(chalk.reset.red.bold(`Failed to build ${pluralize('package', errorCount, true)}.\n`));
+        process.exit(1);
     } else {
         process.stdout.write(chalk.dim('Built all packages.\n'));
+        process.exit(0);
     }
 };

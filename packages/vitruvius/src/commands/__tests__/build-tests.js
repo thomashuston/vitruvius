@@ -11,6 +11,7 @@ jest.mock('vitruvius-build-package', () => jest.fn());
 
 let output;
 process.stdout.write = (text) => { output.push(text); };
+process.exit = jest.fn();
 
 const now = Date.now();
 
@@ -46,3 +47,67 @@ it('builds code in the source directory into the destination directory for all p
         });
     });
 });
+
+it('exits with success code when all packages build successfully', () => {
+    mockPackages = [
+        '/foo/bar/packages/fake-pkg-1',
+        '/foo/bar/packages/fake-pkg-2'
+    ];
+
+    build({
+        src: 'src',
+        dest: 'lib'
+    });
+
+    expect(process.exit).toHaveBeenCalledWith(0);
+});
+
+it('exits with failure code when some packages fail to build', () => {
+    mockPackages = [
+        '/foo/bar/packages/fake-pkg-1',
+        '/foo/bar/packages/fake-pkg-2'
+    ];
+
+    buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
+
+    build({
+        src: 'src',
+        dest: 'lib'
+    });
+
+    expect(process.exit).toHaveBeenCalledWith(1);
+});
+
+if (process.platform !== 'win32') {
+
+    it('logs success when all packages build successfully', () => {
+        mockPackages = [
+            '/foo/bar/packages/fake-pkg-1',
+            '/foo/bar/packages/fake-pkg-2'
+        ];
+
+        build({
+            src: 'src',
+            dest: 'lib'
+        });
+
+        expect(output.join('')).toMatchSnapshot();
+    });
+
+    it('logs errors when some packages fail to build', () => {
+        mockPackages = [
+            '/foo/bar/packages/fake-pkg-1',
+            '/foo/bar/packages/fake-pkg-2'
+        ];
+
+        buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
+
+        build({
+            src: 'src',
+            dest: 'lib'
+        });
+
+        expect(output.join('')).toMatchSnapshot();
+    });
+
+}
