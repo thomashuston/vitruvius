@@ -38,6 +38,7 @@
     "yargs": "^6.5.0"
   },
   "devDependencies": {
+    "babel-core": "^6.23.1",
     "lerna": "^2.0.0-beta.38"
   }
 }

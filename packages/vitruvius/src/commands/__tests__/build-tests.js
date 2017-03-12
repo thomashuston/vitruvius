@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { transform } from 'babel-core';
 import buildPackage from 'vitruvius-build-package';
 import { handler as build } from '../build';
 
@@ -101,6 +102,26 @@ if (process.platform !== 'win32') {
         ];
 
         buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
+
+        build({
+            src: 'src',
+            dest: 'lib'
+        });
+
+        expect(output.join('')).toMatchSnapshot();
+    });
+
+    it('pretty prints babel errors when babel compilation fails in a package', () => {
+        mockPackages = [
+            '/foo/bar/packages/fake-pkg-1',
+            '/foo/bar/packages/fake-pkg-2'
+        ];
+
+        buildPackage.mockImplementationOnce(() => {
+            transform('cons invalid = 1;', {
+                filename: '/foo/bar/packages/fake-pkg-1/invalid.js'
+            });
+        });
 
         build({
             src: 'src',
