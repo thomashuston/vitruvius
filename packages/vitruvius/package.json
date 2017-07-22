@@ -6,7 +6,7 @@
     "vitruvius": "./bin/vitruvius.js"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "repository": {
     "type": "git",
