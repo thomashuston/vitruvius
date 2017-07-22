@@ -1,6 +1,6 @@
-import * as lerna from 'lerna';
+import PackageUtilities from 'lerna/lib/PackageUtilities';
 import Repository from 'lerna/lib/Repository';
 
 export default function getPackages() {
-    return lerna.getPackages(new Repository()).map(pkg => pkg.location);
+    return PackageUtilities.getPackages(new Repository()).map(pkg => pkg.location);
 }

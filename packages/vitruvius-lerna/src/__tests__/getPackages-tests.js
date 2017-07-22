@@ -1,7 +1,7 @@
 import getPackages from '../getPackages';
 
 let mockPackages;
-jest.mock('lerna', () => ({
+jest.mock('lerna/lib/PackageUtilities', () => ({
     getPackages: () => mockPackages
 }));
 jest.mock('lerna/lib/Repository', () => class FakeRepository { });
