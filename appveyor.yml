@@ -13,7 +13,6 @@ environment:
 cache:
   - "%LOCALAPPDATA%\\Yarn"
   - node_modules
-  - .eslintcache
 
 install:
   - ps: Install-Product node $env:nodejs_version x64
