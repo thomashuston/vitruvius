@@ -26,3 +26,4 @@ build: off
 
 test_script:
   - node ./yarn.js run test -- --updateSnapshot --color
+  - node ./yarn.js run test-build -- --color

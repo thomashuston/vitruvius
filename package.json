@@ -8,7 +8,8 @@
     "postinstall": "yarn run clean && yarn run build",
     "precommit": "lint-staged",
     "prelerna-publish": "cp README.md ./packages/vitruvius/README.md",
-    "test": "jest"
+    "test": "jest",
+    "test-build": "node ./packages/vitruvius/bin/vitruvius.js build --src src --dest lib"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

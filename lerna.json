@@ -5,5 +5,6 @@
   "packages": [
     "packages/*"
   ],
+  "registry": "https://registry.npmjs.org/",
   "useWorkspaces": true
 }
