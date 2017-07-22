@@ -9,6 +9,7 @@ environment:
     - nodejs_version: "4"
     - nodejs_version: "6"
     - nodejs_version: "7"
+    - nodejs_version: "8"
 
 cache:
   - "%LOCALAPPDATA%\\Yarn"
@@ -22,11 +23,13 @@ cache:
 install:
   - ps: Install-Product node $env:nodejs_version x64
   - node --version
-  - yarn --version
-  - yarn install
+  - curl -fsSL -o yarn.js https://github.com/yarnpkg/yarn/releases/download/v0.27.5/yarn-0.27.5.js
+  - node ./yarn.js --version
+  - node ./yarn.js install
+  - node ./yarn.js run build
 
 build: off
 
 test_script:
-  - yarn run lint
-  - yarn run test -- --updateSnapshot --color
+  - node ./yarn.js run lint
+  - node ./yarn.js run test -- --updateSnapshot --color

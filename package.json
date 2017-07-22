@@ -5,7 +5,8 @@
     "clean": "rimraf ./packages/*/lib",
     "lerna-publish": "lerna publish",
     "lint": "eslint . --cache",
-    "postinstall": "lerna bootstrap --concurrency=1 && yarn run clean && yarn run build",
+    "postinstall": "yarn run clean && yarn run build",
+    "precommit": "lint-staged",
     "prelerna-publish": "cp README.md ./packages/vitruvius/README.md",
     "test": "jest"
   },
@@ -14,26 +15,24 @@
     "babel-eslint": "^7.1.1",
     "babel-jest": "^19.0.0",
     "babel-preset-latest": "^6.16.0",
-    "eslint": "^3.12.2",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
-    "ghooks": "^2.0.0",
-    "jest": "^19.0.2",
-    "lerna": "^2.0.0-beta.38",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.3",
+    "jest": "^20.0.0",
+    "lerna": "^2.0.0",
     "lint-staged": "^3.3.1",
     "rimraf": "^2.5.4"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.js": [
       "eslint --fix --color",
       "git add"
     ]
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
