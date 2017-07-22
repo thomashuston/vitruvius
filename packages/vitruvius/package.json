@@ -1,7 +1,7 @@
 {
   "name": "vitruvius",
   "description": "Master builder for Lerna projects.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "bin": {
     "vitruvius": "./bin/vitruvius.js"
   },
@@ -33,7 +33,7 @@
     "indent": "^0.0.2",
     "pluralize": "^3.1.0",
     "vitruvius-build-package": "^2.0.0",
-    "vitruvius-lerna": "^2.0.0",
+    "vitruvius-lerna": "^2.0.1",
     "vitruvius-utils": "^2.0.0",
     "yargs": "^6.5.0"
   },
