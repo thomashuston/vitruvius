@@ -15,6 +15,7 @@ process.stdout.write = (text) => { output.push(text); };
 process.exit = jest.fn();
 
 const now = Date.now();
+const rootDir = path.resolve(path.join(__dirname, '..', '..', '..', '..', '..'));
 
 beforeEach(() => {
     output = [];
@@ -24,8 +25,8 @@ beforeEach(() => {
 
 it('builds code in the source directory into the destination directory for all packages', () => {
     mockPackages = [
-        '/foo/bar/packages/fake-pkg-1',
-        '/foo/bar/packages/fake-pkg-2'
+        path.join(rootDir, '/packages/fake-pkg-1'),
+        path.join(rootDir, '/packages/fake-pkg-2')
     ];
 
     build({
@@ -51,8 +52,8 @@ it('builds code in the source directory into the destination directory for all p
 
 it('exits with success code when all packages build successfully', () => {
     mockPackages = [
-        '/foo/bar/packages/fake-pkg-1',
-        '/foo/bar/packages/fake-pkg-2'
+        path.join(rootDir, '/packages/fake-pkg-1'),
+        path.join(rootDir, '/packages/fake-pkg-2')
     ];
 
     build({
@@ -65,8 +66,8 @@ it('exits with success code when all packages build successfully', () => {
 
 it('exits with failure code when some packages fail to build', () => {
     mockPackages = [
-        '/foo/bar/packages/fake-pkg-1',
-        '/foo/bar/packages/fake-pkg-2'
+        path.join(rootDir, '/packages/fake-pkg-1'),
+        path.join(rootDir, '/packages/fake-pkg-2')
     ];
 
     buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
@@ -83,8 +84,8 @@ if (process.platform !== 'win32') {
 
     it('logs success when all packages build successfully', () => {
         mockPackages = [
-            '/foo/bar/packages/fake-pkg-1',
-            '/foo/bar/packages/fake-pkg-2'
+            path.join(rootDir, '/packages/fake-pkg-1'),
+            path.join(rootDir, '/packages/fake-pkg-2')
         ];
 
         build({
@@ -97,8 +98,8 @@ if (process.platform !== 'win32') {
 
     it('logs errors when some packages fail to build', () => {
         mockPackages = [
-            '/foo/bar/packages/fake-pkg-1',
-            '/foo/bar/packages/fake-pkg-2'
+            path.join(rootDir, '/packages/fake-pkg-1'),
+            path.join(rootDir, '/packages/fake-pkg-2')
         ];
 
         buildPackage.mockImplementationOnce(() => { throw new Error('failed!'); });
@@ -113,13 +114,13 @@ if (process.platform !== 'win32') {
 
     it('pretty prints babel errors when babel compilation fails in a package', () => {
         mockPackages = [
-            '/foo/bar/packages/fake-pkg-1',
-            '/foo/bar/packages/fake-pkg-2'
+            path.join(rootDir, '/packages/fake-pkg-1'),
+            path.join(rootDir, '/packages/fake-pkg-2')
         ];
 
         buildPackage.mockImplementationOnce(() => {
             transform('cons invalid = 1;', {
-                filename: '/foo/bar/packages/fake-pkg-1/invalid.js'
+                filename: path.join(rootDir, '/packages/fake-pkg-1/invalid.js')
             });
         });
 

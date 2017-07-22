@@ -6,7 +6,6 @@ notifications:
 
 environment:
   matrix:
-    - nodejs_version: "4"
     - nodejs_version: "6"
     - nodejs_version: "7"
     - nodejs_version: "8"
@@ -14,10 +13,6 @@ environment:
 cache:
   - "%LOCALAPPDATA%\\Yarn"
   - node_modules
-  - packages/vitruvius/node_modules
-  - packages/vitruvius-build-package/node_modules
-  - packages/vitruvius-lerna/node_modules
-  - packages/vitruvius-utils/node_modules
   - .eslintcache
 
 install:
@@ -31,5 +26,4 @@ install:
 build: off
 
 test_script:
-  - node ./yarn.js run lint
   - node ./yarn.js run test -- --updateSnapshot --color

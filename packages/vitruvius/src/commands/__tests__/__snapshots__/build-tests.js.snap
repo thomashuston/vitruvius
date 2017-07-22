@@ -28,7 +28,7 @@ exports[`pretty prints babel errors when babel compilation fails in a package 1`
 
   Unexpected token, expected ;
 
-   at [0m[36m../../../../foo/bar/packages/fake-pkg-1/invalid.js[39m[0m:1:5
+   at [0m[36mpackages/fake-pkg-1/invalid.js[39m[0m:1:5
 
   [0m[31m[1m>[22m[39m[90m 1 | [39mcons invalid [33m=[39m [35m1[39m[33m;[39m
    [90m   | [39m     [31m[1m^[22m[39m[0m
