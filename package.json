@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "babel-node ./scripts/build.js",
-    "clean": "rimraf ./packages/*/lib",
+    "clean": "rimraf \"./packages/*/lib\"",
     "lerna-publish": "lerna publish",
     "lint": "eslint . --cache",
     "postinstall": "yarn run clean && yarn run build",

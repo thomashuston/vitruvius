@@ -20,7 +20,6 @@ install:
   - curl -fsSL -o yarn.js https://github.com/yarnpkg/yarn/releases/download/v0.27.5/yarn-0.27.5.js
   - node ./yarn.js --version
   - node ./yarn.js install
-  - node ./yarn.js run build
 
 build: off
 
