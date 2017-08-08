@@ -35,7 +35,9 @@ vitruvius build --src <srcDirName> --dest <destDirName> [--ignore <fileGlobPatte
 
 `dest` (required) is the name of the output directory you want to create in each package.
 
-`ignore` (optional) is an array of glob patterns for files and directories to ignore. By default, `*.test.js`, `*.spec.js`, `**/__tests__/**`, and `**/__mocks__/**` are ignored.
+`ignore-packages` (optional) is an array of glob patterns for packages to ignore.
+
+`ignore-files` (optional) is an array of glob patterns for files and directories to ignore. By default, `*.test.js`, `*.spec.js`, `**/__tests__/**`, and `**/__mocks__/**` are ignored.
 
 As a point of reference, let's consider this standard Lerna project:
 

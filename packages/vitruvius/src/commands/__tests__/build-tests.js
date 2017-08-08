@@ -32,7 +32,7 @@ it('builds code in the source directory into the destination directory for all p
     build({
         src: 'src',
         dest: 'lib',
-        ignore: [
+        'ignore-files': [
             '**/__mocks__/**',
             '**/__tests__/**'
         ]
@@ -47,6 +47,32 @@ it('builds code in the source directory into the destination directory for all p
                 '**/__tests__/**'
             ]
         });
+    });
+});
+
+it('does not build code for ignore packages', () => {
+    mockPackages = [
+        path.join(rootDir, '/examples/example-pkg'),
+        path.join(rootDir, '/packages/fake-pkg-1'),
+        path.join(rootDir, '/packages/fake-pkg-2')
+    ];
+
+    build({
+        src: 'src',
+        dest: 'lib',
+        'ignore-packages': [
+            'examples/**'
+        ]
+    });
+
+    expect(buildPackage).toHaveBeenCalledTimes(2);
+    expect(buildPackage).toHaveBeenCalledWith({
+        srcDir: path.join(mockPackages[1], 'src'),
+        destDir: path.join(mockPackages[1], 'lib')
+    });
+    expect(buildPackage).toHaveBeenCalledWith({
+        srcDir: path.join(mockPackages[2], 'src'),
+        destDir: path.join(mockPackages[2], 'lib')
     });
 });
 

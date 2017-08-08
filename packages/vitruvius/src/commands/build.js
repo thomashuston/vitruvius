@@ -2,6 +2,7 @@ import * as path from 'path';
 import chalk from 'chalk';
 import buildPackage from 'vitruvius-build-package';
 import indent from 'indent';
+import micromatch from 'micromatch';
 import pluralize from 'pluralize';
 import { getPackages } from 'vitruvius-lerna';
 import { clearLine, formatError } from 'vitruvius-utils';
@@ -23,11 +24,25 @@ export const builder = {
         describe: 'the output directory name',
         type: 'string'
     },
-    ignore: {
+    'ignore-packages': {
+        demandOption: false,
+        describe: 'glob patterns of packages to ignore',
+        type: 'array'
+    },
+    'ignore-files': {
         demandOption: false,
         describe: 'glob patterns of files to ignore',
         type: 'array'
     }
+};
+
+const isIgnored = (pkg, ignorePackages) => {
+    for (let i = 0; i < ignorePackages.length; i++) {
+        if (micromatch.isMatch(pkg, path.join(cwd, ignorePackages[i]))) {
+            return true;
+        }
+    }
+    return false;
 };
 
 export const handler = (argv) => {
@@ -38,6 +53,10 @@ export const handler = (argv) => {
     let errorCount = 0;
 
     packages.forEach((pkg) => {
+        if (isIgnored(pkg, argv['ignore-packages'] || [])) {
+            return;
+        }
+
         const packageName = path.relative(cwd, pkg);
         const srcDir = path.join(pkg, argv.src);
         const destDir = path.join(pkg, argv.dest);
@@ -49,7 +68,7 @@ export const handler = (argv) => {
             buildPackage({
                 srcDir,
                 destDir,
-                ignorePatterns: argv.ignore
+                ignorePatterns: argv['ignore-files']
             });
             builtCount++;
             clearLine();

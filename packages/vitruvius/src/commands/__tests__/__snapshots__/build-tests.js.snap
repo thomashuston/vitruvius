@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`logs errors when some packages fail to build 1`] = `
-"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-1[999D[K[0m[7m[31m[1m ERROR [22m[39m[27m[0m fake-pkg-1
+"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-1[999D[K[0m[7m[31m[1m ERROR [22m[39m[27m[0m packages/fake-pkg-1
 
   Error: failed!
 
-[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m fake-pkg-2
+[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m packages/fake-pkg-2
 
 [1mPackages: [22m[0m[31m[1m1 failed, [22m[39m[0m[0m[32m[1m1 built, [22m[39m[0m2 total
 [1mTime:     [22m[0m[33m[1m0.00s
@@ -14,8 +14,8 @@ exports[`logs errors when some packages fail to build 1`] = `
 `;
 
 exports[`logs success when all packages build successfully 1`] = `
-"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-1[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m fake-pkg-1
-[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m fake-pkg-2
+"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-1[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m packages/fake-pkg-1
+[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m packages/fake-pkg-2
 
 [1mPackages: [22m[0m[32m[1m2 built, [22m[39m[0m2 total
 [1mTime:     [22m[0m[33m[1m0.00s
@@ -24,7 +24,7 @@ exports[`logs success when all packages build successfully 1`] = `
 `;
 
 exports[`pretty prints babel errors when babel compilation fails in a package 1`] = `
-"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-1[999D[K[0m[7m[31m[1m ERROR [22m[39m[27m[0m fake-pkg-1
+"[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-1[999D[K[0m[7m[31m[1m ERROR [22m[39m[27m[0m packages/fake-pkg-1
 
   Unexpected token, expected ;
 
@@ -33,7 +33,7 @@ exports[`pretty prints babel errors when babel compilation fails in a package 1`
   [0m[31m[1m>[22m[39m[90m 1 | [39mcons invalid [33m=[39m [35m1[39m[33m;[39m
    [90m   | [39m     [31m[1m^[22m[39m[0m
 
-[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m fake-pkg-2
+[999D[K[0m[7m[33m[1m BUILD [22m[39m[27m[0m packages/fake-pkg-2[999D[K[0m[7m[32m[1m BUILT [22m[39m[27m[0m packages/fake-pkg-2
 
 [1mPackages: [22m[0m[31m[1m1 failed, [22m[39m[0m[0m[32m[1m1 built, [22m[39m[0m2 total
 [1mTime:     [22m[0m[33m[1m0.00s
