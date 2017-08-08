@@ -6,6 +6,8 @@ import pluralize from 'pluralize';
 import { getPackages } from 'vitruvius-lerna';
 import { clearLine, formatError } from 'vitruvius-utils';
 
+const cwd = process.cwd();
+
 export const command = 'build';
 
 export const describe = 'build packages';
@@ -36,7 +38,7 @@ export const handler = (argv) => {
     let errorCount = 0;
 
     packages.forEach((pkg) => {
-        const packageName = path.basename(pkg);
+        const packageName = path.relative(cwd, pkg);
         const srcDir = path.join(pkg, argv.src);
         const destDir = path.join(pkg, argv.dest);
 
